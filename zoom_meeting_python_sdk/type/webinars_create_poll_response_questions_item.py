@@ -1,0 +1,65 @@
+# coding: utf-8
+
+"""
+    Zoom Meeting API
+
+    The Zoom Meeting APIs let developers to access information from Zoom. 
+
+    The version of the OpenAPI document: 2
+    Created by: https://developer.zoom.us/
+"""
+
+from datetime import datetime, date
+import typing
+from enum import Enum
+from typing_extensions import TypedDict, Literal, TYPE_CHECKING
+
+from zoom_meeting_python_sdk.type.webinars_create_poll_response_questions_item_answers import WebinarsCreatePollResponseQuestionsItemAnswers
+from zoom_meeting_python_sdk.type.webinars_create_poll_response_questions_item_prompts import WebinarsCreatePollResponseQuestionsItemPrompts
+from zoom_meeting_python_sdk.type.webinars_create_poll_response_questions_item_right_answers import WebinarsCreatePollResponseQuestionsItemRightAnswers
+
+class RequiredWebinarsCreatePollResponseQuestionsItem(TypedDict):
+    pass
+
+class OptionalWebinarsCreatePollResponseQuestionsItem(TypedDict, total=False):
+    # The allowed maximum number of characters. This field only applies to `short_answer` and `long_answer` polls:  * For `short_answer` polls, a maximum of 500 characters.  * For `long_answer` polls, a maximum of 2,000 characters.
+    answer_max_character: int
+
+    # The allowed minimum number of characters. This field only applies to `short_answer` and `long_answer` polls. You must provide at least a **one** character minimum value.
+    answer_min_character: int
+
+    # Whether participants must answer the question.  * `true` - The participant must answer the question.  * `false` - The participant does not need to answer the question.   **Note:**  * When the poll's `type` value is `1` (Poll), this value defaults to `true`.  * When the poll's `type` value is the `2` (Advanced Poll) or `3` (Quiz) values, this value defaults to `false`.
+    answer_required: bool
+
+    answers: WebinarsCreatePollResponseQuestionsItemAnswers
+
+    # Whether the correct answer is case sensitive. This field only applies to `fill_in_the_blank` polls.  * `true` - The answer is case-sensitive.  * `false` - The answer is not case-sensitive.   This value defaults to `false`.
+    case_sensitive: bool
+
+    # The poll question, up to 255 characters.   For `fill_in_the_blank` polls, this field is the poll's question. For each value that the user must fill in, ensure that there are the same number of `right_answers` values.
+    name: str
+
+    prompts: WebinarsCreatePollResponseQuestionsItemPrompts
+
+    # The high score label used for the `rating_max_value` field.   This field only applies to the `rating_scale` poll.
+    rating_max_label: str
+
+    # The rating scale's maximum value, up to a maximum value of 10.   This field only applies to the `rating_scale` poll.
+    rating_max_value: int
+
+    # The low score label used for the `rating_min_value` field.   This field only applies to the `rating_scale` poll.
+    rating_min_label: str
+
+    # The rating scale's minimum value. This value cannot be less than zero.   This field only applies to the `rating_scale` poll.
+    rating_min_value: int
+
+    right_answers: WebinarsCreatePollResponseQuestionsItemRightAnswers
+
+    # Whether to display the radio selection as a drop-down box.  * `true` - Show as a drop-down box.  * `false` - Do not show as a drop-down box.   This value defaults to `false`.
+    show_as_dropdown: bool
+
+    # The poll's question and answer type.  * `single` - Single choice.  * `multiple` - Multiple choice.  * `matching` - Matching.  * `rank_order` - Rank order.  * `short_answer` - Short answer.  * `long_answer` - Long answer.  * `fill_in_the_blank` - Fill in the blank.  * `rating_scale` - Rating scale.
+    type: str
+
+class WebinarsCreatePollResponseQuestionsItem(RequiredWebinarsCreatePollResponseQuestionsItem, OptionalWebinarsCreatePollResponseQuestionsItem):
+    pass

@@ -1,0 +1,26 @@
+# coding: utf-8
+
+"""
+    Zoom Meeting API
+
+    The Zoom Meeting APIs let developers to access information from Zoom. 
+
+    The version of the OpenAPI document: 2
+    Created by: https://developer.zoom.us/
+"""
+
+from datetime import datetime, date
+import typing
+from enum import Enum
+from typing_extensions import TypedDict, Literal, TYPE_CHECKING
+
+from zoom_meeting_python_sdk.type.cloud_recording_update_registrant_status_request_registrants import CloudRecordingUpdateRegistrantStatusRequestRegistrants
+
+class RequiredCloudRecordingUpdateRegistrantStatusRequest(TypedDict):
+    action: str
+
+class OptionalCloudRecordingUpdateRegistrantStatusRequest(TypedDict, total=False):
+    registrants: CloudRecordingUpdateRegistrantStatusRequestRegistrants
+
+class CloudRecordingUpdateRegistrantStatusRequest(RequiredCloudRecordingUpdateRegistrantStatusRequest, OptionalCloudRecordingUpdateRegistrantStatusRequest):
+    pass
